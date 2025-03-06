@@ -13,14 +13,13 @@ import { Slide, Zoom } from "react-awesome-reveal";
 
 
 const HeroSection = () => {
-
-    const sliderRef = useRef<Slider | null>();
+    // Fix 1: Initialize useRef with null
+    const sliderRef = useRef<Slider>(null);
 
     // Function for next button
     const next = () => {
         if (sliderRef.current) {
             sliderRef.current.slickNext();
-
         }
     };
     // function for previous button
@@ -28,7 +27,6 @@ const HeroSection = () => {
         if (sliderRef.current) {
             sliderRef.current.slickPrev();
         }
-
     };
 
     const settings = {
@@ -56,7 +54,8 @@ const HeroSection = () => {
     }, [])
     return (
         <section className="w-full h-auto bg-gradient-to-r from-red-500 to-amber-500 relative overflow-x-hidden">
-            <Slider ref={(slider) => (sliderRef.current = slider)} {...settings} className="h-full">
+            {/* Fix 2: Change the ref assignment */}
+            <Slider ref={sliderRef} {...settings} className="h-full">
                 {
                     HeroTexts.map((hero, index) => (
                         <main className="w-full lg:h-screen md:h-[50vh] h-screen relative bg-zinc-900 overflow-x-hidden" key={index}>
@@ -85,7 +84,6 @@ const HeroSection = () => {
                                 </div>
                             </div>
                         </main>
-
                     ))
                 }
             </Slider>
@@ -99,7 +97,6 @@ const HeroSection = () => {
             </div>
 
             <StickyIcons />
-
         </section>
     )
 }
