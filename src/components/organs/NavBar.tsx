@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import { NavLinks } from "../particles/Data";
 import { List } from "../atoms/List";
 import { NavLink } from "react-router-dom";
-import { ArrowCircleRight, Barbell, CirclesFour } from "@phosphor-icons/react";
+import { ArrowCircleRight, CirclesFour } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
-import { Text } from "../atoms/Text";
 import Logogym from "../../assets/Logogym.png"; 
 
 const NavBar = () => {
