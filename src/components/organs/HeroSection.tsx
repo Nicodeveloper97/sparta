@@ -76,7 +76,7 @@ const HeroSection = () => {
                                 </Text>
                                 <div className="flex items-center gap-8">
                                     <Slide direction="up">
-                                        <Button type="button" className="px-10 font-medium text-white py-2.5 bg-gradient-to-b from-[#690b0b] to-black whitespace-nowrap from-red-500 to-amber-500">
+                                        <Button type="button" className="px-10 font-medium text-white py-2.5 bg-gradient-to-r from-[#690b0b] to-black">
                                             {hero.Button}
                                         </Button>
                                     </Slide>
