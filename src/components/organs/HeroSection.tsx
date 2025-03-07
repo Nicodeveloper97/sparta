@@ -53,7 +53,7 @@ const HeroSection = () => {
         }
     }, [])
     return (
-        <section className="w-full h-auto bg-gradient-to-r from-red-500 to-amber-500 relative overflow-x-hidden">
+        <section className="w-full h-auto bg-gradient-to-r from-[#690b0b] to-black 00 relative overflow-x-hidden">
             {/* Fix 2: Change the ref assignment */}
             <Slider ref={sliderRef} {...settings} className="h-full">
                 {
@@ -88,12 +88,22 @@ const HeroSection = () => {
                 }
             </Slider>
             <div className="flex justify-end lg:justify-start items-center gap-4 absolute lg:bottom-10 md:bottom-5 md:right-10 right-4 bottom-4">
-                <Button onClick={previous} type="button" className="w-8 h-8 border rounded-full border-amber-500 flex items-center justify-center text-amber-500 hover:text-red-500 hover:border-red-500">
-                    <ArrowCircleLeft size={20} color="currentColor" weight="light" />
-                </Button>
-                <Button onClick={next} type="button" className="w-8 h-8 border rounded-full border-amber-500 flex items-center justify-center text-amber-500 hover:text-red-500 hover:border-red-500">
-                    <ArrowCircleRight size={20} color="currentColor" weight="light" />
-                </Button>
+            <Button 
+  onClick={previous} 
+  type="button" 
+  className="w-8 h-8 border rounded-full border-[#690b0b] flex items-center justify-center text-[#690b0b] hover:text-white hover:bg-[#690b0b] hover:border-[#690b0b]"
+>
+  <ArrowCircleLeft size={20} color="currentColor" weight="light" />
+</Button>
+
+<Button 
+  onClick={next} 
+  type="button" 
+  className="w-8 h-8 border rounded-full border-[#690b0b] flex items-center justify-center text-[#690b0b] hover:text-white hover:bg-[#690b0b] hover:border-[#690b0b]"
+>
+  <ArrowCircleRight size={20} color="currentColor" weight="light" />
+</Button>
+
             </div>
 
             <StickyIcons />

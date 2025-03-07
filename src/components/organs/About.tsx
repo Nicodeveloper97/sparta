@@ -13,8 +13,8 @@ const About = () => {
             <main className="w-full md:h-[700px] grid md:grid-cols-2 items-center lg:mx-20 md:mx-10 mx-6 gap-10 md:gap-10 py-12 md:py-0">
                 <div className="h-full w-full md:order-1 order-2 flex flex-col justify-center items-start gap-4 pb-8 md:pb-12">
                     <Fade>
-                        <div className="flex flex-col mt-10 items-start relative before:absolute before:-bottom-6 before:left-0 before:w-20 before:h-1 before:rounded-lg before:bg-gradient-to-r before:from-amber-500 before:to-red-500 z-10">
-                            <Text as="p" className="text-amber-500 lg:text-sm text-xs tracking-widest uppercase font-medium">{AboutTexts.firstText}</Text>
+                        <div className="flex flex-col mt-10 items-start relative before:absolute before:-bottom-6 before:left-0 before:w-20 before:h-1 before:rounded-lg before:bg-gradient-to-r from-[#690b0b] to-black z-10">
+                            <Text as="p" className="text-[#7a0707] lg:text-sm text-xs tracking-widest uppercase font-medium">{AboutTexts.firstText}</Text>
                             <Text as="h1" className="text-zinc-100 lg:text-5xl md:text-4xl text-3xl">{AboutTexts.secondText}</Text>
                             <Text as="h1" className="absolute text-zinc-500/20 md:-left-3 left-0 lg:text-9xl md:text-7xl text-6xl font-extrabold lg:-top-36 md:-top-20 -top-16 -z-10">01</Text>
                             Fade</div>

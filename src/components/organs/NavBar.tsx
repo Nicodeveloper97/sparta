@@ -36,7 +36,17 @@ const NavBar = () => {
                     <ul className="flex items-center justify-center h-full gap-4 relative before:w-full before:h-0.5 before:absolute before:bottom-0 before:left-0 before:bg-zinc-400">
                         {NavLinks.map((navlink, index) => (
                             <List className="w-full text-base" key={index}>
-                                <NavLink to={navlink.url} className={`relative inline-block  px-2 whitespace-nowrap text-white uppercase text-xs font-bold transition-all duration-200 hover:text-amber-500 before:w-0 before:h-0.5 before:bg-gradient-to-b from-[#690b0b] to-black before:absolute before:-bottom-[2.93rem] before:left-0 before:transition-all before:duration-200 before:ease-in hover:before:left-0.5`}>{navlink.name}</NavLink>
+                                <NavLink 
+                                    to={navlink.url} 
+                                    className={`relative inline-block px-2 whitespace-nowrap text-white uppercase text-xs font-bold transition-all duration-200 hover:text-[#690b0b] before:w-0 before:h-0.5 before:bg-gradient-to-b from-[#690b0b] to-black before:absolute before:-bottom-[2.93rem] before:left-0 before:transition-all before:duration-200 before:ease-in hover:before:left-0.5`}
+                                >
+                                    {/* Aquí verificamos si el enlace es 'INICIO' y lo estilizamos */}
+                                    {navlink.name === "INICIO" ? (
+                                        <span className="text-[#690b0b]">{navlink.name}</span>
+                                    ) : (
+                                        navlink.name
+                                    )}
+                                </NavLink>
                             </List>
                         ))}
                     </ul>
@@ -62,7 +72,18 @@ const NavBar = () => {
                         <ul className="flex flex-col gap-3 pl-5">
                             {NavLinks.map((navlink, index) => (
                                 <List className="w-full text-base" key={index}>
-                                    <NavLink to={navlink.url} onClick={handleToggle} className={`relative overflow-hidden inline-block text-white before:w-full before:h-0.5 before:bg-color2 before:absolute before:bottom-0 before:-left-full before:rounded-full before:transition-all before:duration-200 before:ease-in hover:before:left-0 `}>{navlink.name}</NavLink>
+                                    <NavLink 
+                                        to={navlink.url} 
+                                        onClick={handleToggle} 
+                                        className={`relative overflow-hidden inline-block text-white before:w-full before:h-0.5 before:bg-color2 before:absolute before:bottom-0 before:-left-full before:rounded-full before:transition-all before:duration-200 before:ease-in hover:before:left-0`}
+                                    >
+                                        {/* Aquí verificamos si el enlace es 'INICIO' y lo estilizamos */}
+                                        {navlink.name === "INICIO" ? (
+                                            <span className="text-[#690b0b]">{navlink.name}</span>
+                                        ) : (
+                                            navlink.name
+                                        )}
+                                    </NavLink>
                                 </List>
                             ))}
                         </ul>

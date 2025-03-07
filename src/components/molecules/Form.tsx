@@ -53,7 +53,7 @@ const Form = () => {
             </InputField>
 
             <div className="w-full mt-4">
-                <Button onClick={calculateBmi} type="button" className="px-6 py-3 bg-gradient-to-r from-red-500 to-amber-500 text-zinc-200 text-sm uppercase font-semibold">Calculalo ahora</Button>
+                <Button onClick={calculateBmi} type="button" className="px-6 py-3 bg-gradient-to-r from-[#690b0b] to black text-zinc-200 text-sm uppercase font-semibold">Calculalo ahora</Button>
             </div>
 
             {
