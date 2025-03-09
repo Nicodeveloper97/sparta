@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { Image } from "../atoms/Image";
 import { Text } from "../atoms/Text";
 import CalImg from "../../assets/gym/9.jpeg";
@@ -6,15 +6,15 @@ import { Fade } from "react-awesome-reveal";
 import { FaUser, FaWeight, FaRulerVertical, FaRunning, FaBullseye } from "react-icons/fa";
 
 const Calculator = () => {
-    const [age, setAge] = useState('');
-    const [weight, setWeight] = useState('');
-    const [height, setHeight] = useState('');
-    const [activityLevel, setActivityLevel] = useState('1.375'); // Ligeramente activo por defecto
-    const [goal, setGoal] = useState('maintain'); // Objetivo por defecto es "mantener"
-    const [calories, setCalories] = useState(null);
+    const [age, setAge] = useState<string>('');
+    const [weight, setWeight] = useState<string>('');
+    const [height, setHeight] = useState<string>('');
+    const [activityLevel, setActivityLevel] = useState<string>('1.375'); // Ligeramente activo por defecto
+    const [goal, setGoal] = useState<string>('maintain'); // Objetivo por defecto es "mantener"
+    const [calories, setCalories] = useState<string | null>(null);
 
     // Función para calcular TDEE
-    const calculateTDEE = (event) => {
+    const calculateTDEE = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         // Verificar que los campos no estén vacíos
