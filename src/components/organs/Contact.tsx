@@ -7,7 +7,7 @@ import { Button } from "../atoms/Button"
 
 const Contact = () => {
     return (
-        <section className="w-full md:h-[400px] h-[500px] relative">
+        <section className=" w-full md:h-[400px] h-[500px] relative">
             <Image alt="Contact Image" className="w-full h-full" objectCover="object-cover object-top" image={ContactImg} />
             <div className="w-full h-full absolute top-0 left-0 bg-zinc-900/70 flex flex-col justify-center items-center gap-2">
                 <Text as="p" className="tracking-widest text-[#7a0707] uppercase md:text-sm text-xs font-medium">
