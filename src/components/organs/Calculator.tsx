@@ -3,12 +3,13 @@ import { Image } from "../atoms/Image";
 import { Text } from "../atoms/Text";
 import CalImg from "../../assets/gym/9.jpeg";
 import { Fade } from "react-awesome-reveal";
-import { FaUser, FaWeight, FaRulerVertical, FaRunning, FaBullseye } from "react-icons/fa";
+import { FaUser, FaWeight, FaRulerVertical, FaRunning, FaBullseye, FaVenusMars } from "react-icons/fa";
 
 const Calculator = () => {
     const [age, setAge] = useState<string>('');
     const [weight, setWeight] = useState<string>('');
     const [height, setHeight] = useState<string>('');
+    const [gender, setGender] = useState<string>('male'); // Género por defecto
     const [activityLevel, setActivityLevel] = useState<string>('1.375'); // Ligeramente activo por defecto
     const [goal, setGoal] = useState<string>('maintain'); // Objetivo por defecto es "mantener"
     const [calories, setCalories] = useState<string | null>(null);
@@ -26,9 +27,16 @@ const Calculator = () => {
         const heightInCm = parseInt(height);
         const weightInKg = parseInt(weight);
         const ageInYears = parseInt(age);
+        let TMB: number;
 
-        // Fórmula de Harris-Benedict para hombres
-        const TMB = 66 + (13.7 * weightInKg) + (5 * heightInCm) - (6.8 * ageInYears);
+        // Fórmula de Harris-Benedict según el género
+        if (gender === 'male') {
+            // Fórmula para hombres
+            TMB = 66 + (13.7 * weightInKg) + (5 * heightInCm) - (6.8 * ageInYears);
+        } else {
+            // Fórmula para mujeres
+            TMB = 655 + (9.6 * weightInKg) + (1.8 * heightInCm) - (4.7 * ageInYears);
+        }
 
         // Calcular las calorías diarias según el nivel de actividad
         const dailyCalories = TMB * parseFloat(activityLevel);
@@ -37,9 +45,9 @@ const Calculator = () => {
         let finalCalories = dailyCalories;
 
         if (goal === 'gain') {
-            finalCalories += 250; // Superávit para ganar masa muscular
+            finalCalories += 400; // Superávit para ganar masa muscular
         } else if (goal === 'lose') {
-            finalCalories -= 250; // Déficit para perder grasa
+            finalCalories -= 400; // Déficit para perder grasa
         }
 
         setCalories(finalCalories.toFixed(2)); // Guardamos el resultado en el estado
@@ -60,6 +68,18 @@ const Calculator = () => {
 
                         {/* Formulario */}
                         <form onSubmit={calculateTDEE} className="w-full max-w-md bg-zinc-800 p-6 rounded-lg shadow-lg">
+                            <div className="mb-4 relative">
+                                <FaVenusMars className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                                <select
+                                    value={gender}
+                                    onChange={(e) => setGender(e.target.value)}
+                                    className="w-full pl-10 p-2 rounded-lg border-2 border-gray-700 bg-zinc-900 text-white focus:outline-none focus:border-[#690b0b]"
+                                >
+                                    <option value="male">Hombre</option>
+                                    <option value="female">Mujer</option>
+                                </select>
+                            </div>
+                            
                             <div className="mb-4 relative">
                                 <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                                 <input
